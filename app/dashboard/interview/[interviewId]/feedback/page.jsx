@@ -63,7 +63,7 @@ function FeedBack({ params }) {
                         <div className='flex flex-col gap-2'>
                             <h2 className='text-green-500 p-2 flex gap-2 border rounded-lg'>
                                 <Sparkles/>
-                                <strong>Number of Days required to treat it and get well:</strong>{item.rating}
+                                <strong>Number of Days required to treat it and get well:</strong>{item.recovery_period}
                             </h2>
                             <h2 className='p-2 border rounded-lg bg-red-50 text-sm text-yellow-500'><UserRoundPen /><strong>Your Take: </strong>{item.userAns}</h2>
                             <h2 className='p-2 border rounded-lg bg-green-50 text-sm text-green-900 '><Brain /><strong>AI's Take: </strong>{item.correctAns}</h2>

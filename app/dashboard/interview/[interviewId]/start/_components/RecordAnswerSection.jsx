@@ -71,10 +71,12 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
         console.log(userAnswer);
         setLoading(true);
 
-        const feedbackPrompt="Question:"+mockInterviewQuestion[activeQuestionIndex]?.["Possible Cause"]+
-        ",User Answer:"+userAnswer+",Depends on question and user answer for given interview question"+
-        "please give us rating for answer and feedback as area of improvement if any"+
-        "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field";
+        const feedbackPrompt = "Possible Cause: " + mockInterviewQuestion[activeQuestionIndex]?.["Possible Cause"] + 
+        ", User Response: " + userAnswer + 
+        ". Based on this user response(user will tell like among all 5 which is the closest possible cause), provide feedback on how the user should proceed, including medicine intake and precautions. Format the timetable as a normal paragraph instead of JSON fields. " +
+        "Also, replace the rating field with an estimated recovery period in days. " +
+        "Return the response in JSON format with two fields: 'feedback' (guidance) and 'recovery_period' (estimated days to recover).";
+        
 
         const result =await chatSession.sendMessage(feedbackPrompt);
         const mockJsonResp=(result.response.text()).replace('```json', '').replace('```','')
@@ -88,7 +90,7 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
             userAns:userAnswer,
             correctAns:mockInterviewQuestion[activeQuestionIndex]?.["Recommended Action"],
             feedback:JsonFeedbackResp?.feedback,
-            rating:JsonFeedbackResp?.rating,
+            recovery_period:JsonFeedbackResp?.rating,
             userEmail:user?.primaryEmailAddress?.emailAddress,
             createdAt:moment().format('DD-MM-yyyy')
         })
