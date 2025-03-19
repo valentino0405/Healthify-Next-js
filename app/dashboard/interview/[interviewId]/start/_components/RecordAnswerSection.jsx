@@ -73,9 +73,13 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
 
         const feedbackPrompt = "Possible Cause: " + mockInterviewQuestion[activeQuestionIndex]?.["Possible Cause"] + 
         ", User Response: " + userAnswer + 
-        ". Based on this user response(user will tell like among all 5 which is the closest possible cause), provide feedback on how the user should proceed, including medicine intake and precautions. Format the timetable as a normal paragraph instead of JSON fields. " +
+        ". Based on this user response (user will tell which among all 5 is the closest possible cause), provide structured feedback with bullet points using '●' for each point. " +
+        "Include a  timetable(it should be based on indan standard time) on how to take medicines and precautions. " +
+        "Use '●' for bullet points and format the response properly with line breaks (feedback should be of just 20 lines) (no * and **)(only line breaks \n) " +
+    
         "Also, replace the rating field with an estimated recovery period in days. " +
-        "Return the response in JSON format with two fields: 'feedback' (guidance) and 'recovery_period' (estimated days to recover).";
+        "Return the response in JSON format with two fields: 'feedback' (guidance with bullet points) and 'recovery_period' (estimated days to recover).";
+        
         
 
         const result =await chatSession.sendMessage(feedbackPrompt);
