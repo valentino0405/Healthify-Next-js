@@ -104,8 +104,8 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
     }
 
     return (
-        <div className='flex items-center justify-center flex-col'>
-            <div className='flex flex-col mt-20 justify-center items-center border rounded-lg p-5'>
+        <div className=' flex items-center justify-start flex-col'>
+            <div className='flex flex-col mt-10 justify-center items-center border rounded-lg p-5'>
                 <Image src={'/webcam.png'} width={200} height={200}
                     className='absolute' />
                 <Webcam
@@ -125,7 +125,7 @@ function RecordAnswerSection({mockInterviewQuestion,activeQuestionIndex,intervie
                             <Mic/> Stop Recording
                         </h2>
                         :
-                        'Record Answer' }</Button>
+                        'Record Your Insights' }</Button>
                         
               
                        

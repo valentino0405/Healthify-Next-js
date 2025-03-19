@@ -9,10 +9,11 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { ChevronsUpDown } from 'lucide-react';
+import { Brain, ChevronsUpDown, NotebookPen, Sparkles, UserRoundPen,  } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Separator } from '@/components/ui/separator';
 
 
 function FeedBack({ params }) {
@@ -47,11 +48,11 @@ function FeedBack({ params }) {
                     <>
        
         
-       <h2 className='text-3xl font-bold text-green-500'>Congratulation!</h2>
-            <h2 className='font-bold text-2xl'>Here is your Interview feedback</h2>
+       <h2 className='text-3xl font-bold text-green-500'>Hope so it Helped!</h2>
+            <h2 className='font-bold text-2xl'>Here is your feedback</h2>
             
-            <h2 className='text-primary text-lg my-3'>Your overall interview rating<strong>7/10</strong></h2>
-            <h2 className='text-sm text-gray-500'>Find below interview question with correct answer, Your answer and feedback for improvement</h2>
+            <h2 className='text-primary text-lg my-3'>More possible solutions :</h2>
+            <h2 className='text-sm text-gray-500'>Find below possible cauuse with recommended action, Your feedback as well as more solutions</h2>
             {feedbackList&&feedbackList.map((item, index) => (
                     <Collapsible key={index} className='mt-7'>
                     <CollapsibleTrigger className='p-2 bg-secondary rounded-lg
@@ -60,17 +61,26 @@ function FeedBack({ params }) {
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                         <div className='flex flex-col gap-2'>
-                            <h2 className='text-red-500 p-2 border rounded-lg'>
-                                <strong>Rating:</strong>{item.rating}
+                            <h2 className='text-green-500 p-2 flex gap-2 border rounded-lg'>
+                                <Sparkles/>
+                                <strong>Number of Days required to treat it and get well:</strong>{item.rating}
                             </h2>
-                            <h2 className='p-2 border rounded-lg bg-red-50 text-sm text-red-900'><strong>Your Answer: </strong>{item.userAns}</h2>
-                            <h2 className='p-2 border rounded-lg bg-green-50 text-sm text-green-900'><strong>Correct Answer: </strong>{item.correctAns}</h2>
-                            <h2 className='p-2 border rounded-lg bg-blue-50 text-sm text-primary'><strong>Feedback : </strong>{item.feedback}</h2>
+                            <h2 className='p-2 border rounded-lg bg-red-50 text-sm text-yellow-500'><UserRoundPen /><strong>Your Take: </strong>{item.userAns}</h2>
+                            <h2 className='p-2 border rounded-lg bg-green-50 text-sm text-green-900 '><Brain /><strong>AI's Take: </strong>{item.correctAns}</h2>
+                            <h2 className='p-2 border rounded-lg bg-blue-50 text-sm text-primary'>  <NotebookPen /><strong>Feedback based on your Insights give to AI: </strong>{item.feedback}</h2>
                         </div>
                     </CollapsibleContent>
+                    <Separator className="my-5"  />
                   </Collapsible>
+                  
+
                 ))}
-                </>}
+               
+                </>
+               
+                }
+                
+
                 <Button onClick={()=>router.replace('/dashboard')}>Go Home</Button>
         </div>
     );

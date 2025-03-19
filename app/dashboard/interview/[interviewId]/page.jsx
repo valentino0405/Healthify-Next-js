@@ -38,13 +38,13 @@ function Interview({ params: paramsPromise }) {
             <>
               <div className='flex flex-col p-5 rounded-lg border gap-5'>
                 <h2 className='text-lg'>
-                  <strong>Job Role/Job Position:</strong> {interviewData.jobPosition}
+                  <strong>Health Problem:</strong> {interviewData.jobPosition}
                 </h2>
                 <h2 className='text-lg'>
-                  <strong>Job Description/Tech Stack:</strong> {interviewData.jobDesc}
+                  <strong>A short Description:</strong> {interviewData.jobDesc}
                 </h2>
                 <h2 className='text-lg'>
-                  <strong>Years of Experience:</strong> {interviewData.jobExperience}
+                  <strong>Number of days suffering it from:</strong> {interviewData.jobExperience}
                 </h2>
               </div>
               <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>
@@ -68,7 +68,7 @@ function Interview({ params: paramsPromise }) {
             }} />
             : <>
               <WebcamIcon className='h-72 w-full my-7 p-20 bg-secondary rounded-lg border' />
-              <Button variant="ghost" className="w-full" onClick={() => setWebCamEnabled(true)}>Enable WebCam</Button>
+              <Button variant="ghost" className="w-full" onClick={() => setWebCamEnabled(true)}>Enable WebCam for Doctor's consultation</Button>
             </>
           }
         </div>
