@@ -52,7 +52,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #4845d2; /* Expands from #484 */
+  --primary: 	#F97316; /* Expands from #484 */
   --primary-foreground: #ffffff; /* Ensure text is readable */
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);

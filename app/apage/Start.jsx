@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const Start = () => {
   const router = useRouter(); // Initialize router
@@ -11,20 +12,38 @@ const Start = () => {
         Welcome to Healthify!
       </h1>
       <div className="flex justify-center gap-20">
-        {/* AI's Advice Card - Redirects to /dashboard */}
-        <Card 
-          className="w-90 h-120 flex items-center justify-center text-lg font-semibold shadow-xl rounded-2xl cursor-pointer transition-transform hover:scale-105"
+        {/* AI's Advice Card - Entire card is clickable */}
+        <Card
+          className="w-70 h-120 flex flex-col items-center shadow-xl rounded-2xl cursor-pointer transition-transform hover:scale-105"
           onClick={() => router.push("/dashboard")}
         >
-          <CardContent className="text-center">AI's Advice</CardContent>
+          <Image
+            src="/ai.webp" // Replace with actual image path
+            alt="AI Advice"
+            width={300}
+            height={200}
+            className="rounded-t-2xl"
+          />
+          <CardContent className="text-center font-semibold text-lg">
+            AI's Advice
+          </CardContent>
         </Card>
 
-        {/* Our Products Card - Redirects to external e-commerce site */}
-        <Card 
-          className="w-90 h-120 flex items-center justify-center text-lg font-semibold shadow-xl rounded-2xl cursor-pointer transition-transform hover:scale-105"
+        {/* Our Products Card - Entire card is clickable */}
+        <Card
+          className="w-60 h-72 flex flex-col items-center shadow-xl rounded-2xl cursor-pointer transition-transform hover:scale-105"
           onClick={() => window.location.href = "https://healthify-next-js-ecommerce.vercel.app/"}
         >
-          <CardContent className="text-center">Our Products</CardContent>
+          <Image
+            src="/our-products.png" // Replace with actual image path
+            alt="Our Products"
+            width={240}
+            height={130}
+            className="rounded-t-2xl"
+          />
+          <CardContent className="text-center font-semibold text-lg mt-2">
+            Our Products
+          </CardContent>
         </Card>
       </div>
     </div>
